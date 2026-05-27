@@ -1,3 +1,23 @@
+#NASA Space Viewer
+
+NASA Space Viewer is a react application where users can explore space related content from NASA and save selected items in categories. 
+
+##Technologies
+-React 
+-JavaScript
+-Vite
+-NASA API
+-localStorage
+-Git and GitHub
+
+##Project status
+
+Project is under development
+
+
+
+
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
