@@ -1,0 +1,1 @@
+// Här kommer funktioner för att spara och hämta från localstorage

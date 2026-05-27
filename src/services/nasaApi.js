@@ -1,0 +1,1 @@
+// Här kommer funktioner för att hämta data från NASA API.
