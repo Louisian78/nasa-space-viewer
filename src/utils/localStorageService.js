@@ -69,7 +69,27 @@ export function createNewCategory(newCategoryToCreate) {
     return [];//"failure?"
 }
 
+/**
+ * EXPORTED FUNCTION
+ * Letar upp och returnerar en specifik bild, matchad på url.
+ * Returnerar null om bilden inte hittas.
+ * 
+ * picUrl = url på bilden som söks.
+ */
+export function getPic(picUrl){
 
+    const categoryStorage = retrieveCatStorage();
+
+    for(let i = 0; i < categoryStorage.length; i++){
+        for(let j = 0; j < categoryStorage[i].listOfPics.length; j++){
+            if(categoryStorage[i].listOfPics[j].url === picUrl){
+                return categoryStorage[i].listOfPics[j];
+            }
+        }
+    }
+
+    return null; //Hittades inte.
+}
 
 /*
 ------------------------------------------------
@@ -148,7 +168,7 @@ function retrieveCatStorage(){
 
 /*
  * INTERNAL FUNCTION
- * Initierar localStorage med standardkategorin "Favoriter".
+ * Initierar localStorage med standardkategorin "Favorites".
  * Körs bara en gång, första gången appen används.
  */
 function initializeStorage(){
