@@ -10,30 +10,31 @@
 
 /*
 ------------------------------------------------
---         EXPORTED FUNCTIONS BELOW           --
+--         EXPORTERADE FUNKTIONER NEDAN       --
 ------------------------------------------------
 */
 
 /**
- *  EXPORTED FUNCTION 
- *  Returns requested category object
- *  If it does not exist, it returns an empty array.
+ * EXPORTERAD FUNKTION
+ * Returnerar ett efterfrågat kategori-objekt.
+ * Om det inte finns, returneras en tom array.
  * 
+ * categoryToLoad = Kategorin som ska hämtas.
  */
 export function getCategory(categoryToLoad) {
 
-    //Retrieve full storage
+    //Hämta hela storage
     const categoryStorage = retrieveCatStorage();
     
-    //Check if suggested category exists or not
+    //Kolla om kategorin finns eller inte
     const resultOfCatCheck = categoryExists(categoryStorage, categoryToLoad);
 
     if(null === resultOfCatCheck) {
         
-        //If null, do noting
-        return []; //Return empty object incase there was no hit.
+        //Om null, gör ingenting
+        return []; //Returnerar tom array om ingen träff hittades.
 
-        //3 - Create new empty category
+        //3 - Skapa ny tom kategori
         //localStorage.setItem(categoryToLoad, JSON.stringify([]));
         //return [];
 
@@ -44,37 +45,38 @@ export function getCategory(categoryToLoad) {
 
 
 /**
- *  EXPORTED FUNCTION 
- *  Creates and appends a new category object in localStorage.
+ * EXPORTERAD FUNKTION
+ * Skapar och sparar ett nytt kategori-objekt i localStorage.
  * 
- *  If a duplicate exists, it returns an empty array. Otherwise, returns the input.
+ * Om en dubblett finns returneras en tom array. Annars returneras det nya objektet.
  * 
+ * newCategoryToCreate = Kategorin som ska skapas.
  */
 export function createNewCategory(newCategoryToCreate) {
 
-    //Check if category already exists
+    //Hämta hela storage
     let categoryStorage = retrieveCatStorage();
     
-    //Check if suggested category exists or not
+    //Kolla om kategorin redan finns
     const resultOfCatCheck = categoryExists(categoryStorage, newCategoryToCreate);
 
-    //If there isn't any category with that name yet, we go ahead make it.
+    //Om ingen kategori med det namnet finns -> skapa den.
     if(resultOfCatCheck === null) {
 
-        return createCat(newCategoryToCreate, categoryStorage);//"success" ?
+        return createCat(newCategoryToCreate, categoryStorage);
 
-    }//If clause end
+    }//If-sats slut
 
 
-    return [];//"failure?"
+    return [];//"Misslyckades?"
 }
 
 /**
- * EXPORTED FUNCTION
+ * EXPORTERAD FUNKTION
  * Letar upp och returnerar en specifik bild, matchad på url.
- * Returnerar null om bilden inte hittas.
+ * Returnerar null om bilden inte hittades.
  * 
- * picUrl = url på bilden som söks.
+ * picUrl = Urlen på bilden som söks.
  */
 export function getPic(picUrl){
 
@@ -93,27 +95,29 @@ export function getPic(picUrl){
 
 /*
 ------------------------------------------------
---         INTERNAL FUNCTIONS BELOW           --
+--         INTERNA FUNKTIONER NEDAN           --
 ------------------------------------------------
 */
 
 /**
- * INTERNAL FUNCTION
- * "createCat" creates and saves a new category.
+ * INTERN FUNKTION
+ * "createCat" skapar och sparar en ny kategori.
  * 
- * Assumes check for existing categories is done beforehand.
- * Assumes storage has been retrieved and parsed
+ * Förutsätter att kontroll av befintliga kategorier gjorts innan anrop.
+ * Förutsätter att storage redan hämtats och parsats.
  * 
+ * newCategoryToCreate = Kategorin som ska skapas.
+ * categoryStorage     = Hela storage-arrayen.
  */
 function createCat(newCategoryToCreate, categoryStorage) {
 
-    //Init new category
+    //Initiera ny kategori
     let freshCategory = { 
         catName: newCategoryToCreate.categoryName,
-        listOfPics: [] //Init array, populate after.
+        listOfPics: [] //Init-array, fylls på efteråt.
     };
     
-    //Check if the suggested category came with pictures. If yes -> append them.
+    //Kolla om den föreslagna kategorin kom med bilder. Om ja -> lägg till dem.
     if( newCategoryToCreate.listOfPics && newCategoryToCreate.listOfPics.length > 0 ) {
     
         appendArrOfPics(freshCategory, newCategoryToCreate);        
@@ -127,19 +131,18 @@ function createCat(newCategoryToCreate, categoryStorage) {
 }
 
 /**
- * INTERNAL FUNCTION
- * "appendArrOfPics" appends an array of pictures to an existing array of pictures.
+ * INTERN FUNKTION
+ * "appendArrOfPics" lägger till en array av bilder till en befintlig bildarray.
  * 
- * catPicDest   = Array to append pics to.
- * catPicSource = Source array of pictures to append. 
- * 
+ * catPicDest   = Array att lägga till bilder i.
+ * catPicSource = Källarray med bilder som ska läggas till.
  */ 
 function appendArrOfPics(catPicDest, catPicSource){
 
-    //Get the length of existing pick array so we are sure to add pics at the end.
+    //Hämta längden på befintlig bildarray så vi är säkra på att lägga till bilder sist.
     const destPicLength = catPicDest.listOfPics.length;
 
-    //Iterate and add
+    //Iterera och lägg till
     for(let i = 0; i < catPicSource.listOfPics.length; i++) {
         catPicDest.listOfPics[destPicLength + i] = catPicSource.listOfPics[i];    
     };
@@ -147,8 +150,8 @@ function appendArrOfPics(catPicDest, catPicSource){
 }
 
 /**
- * INTERNAL FUNCTION
- * "retrieveCatStorage" retrieves all saved categories, parses and returns them
+ * INTERN FUNKTION
+ * "retrieveCatStorage" hämtar alla sparade kategorier, parsar och returnerar dem.
  */ 
 function retrieveCatStorage(){
 
@@ -157,25 +160,22 @@ function retrieveCatStorage(){
     if(storage === null) {
         storage = initializeStorage();
     } else { 
-        //If we initialize the storage, we dont need to parse it. 
+        //Om vi initierar storage behöver vi inte parsa det.
         storage = JSON.parse(storage); 
     }
-
-   
 
     return storage;
 }
 
 /*
- * INTERNAL FUNCTION
- * Initierar localStorage med standardkategorin "Favorites".
+ * INTERN FUNKTION
+ * Initierar localStorage med standardkategorin "Favoriter".
  * Körs bara en gång, första gången appen används.
  */
 function initializeStorage(){
 
-
     const defaultCategory = { 
-        catName: "Favorites",
+        catName: "Favoriter",
         listOfPics: [] 
     };
 
@@ -188,28 +188,24 @@ function initializeStorage(){
 
 
 /**
- * INTERNAL FUNCTION
- * Checks - by the NAME of the category - if a category exists in the category storage or not.
+ * INTERN FUNKTION
+ * Kontrollerar - med hjälp av kategorinamnet - om en kategori finns i storage eller inte.
  * 
- * categoryStorage = The array of categories in storage.
- * categoryToCheck = The category to check if unique.
- * 
+ * categoryStorage = Arrayen med alla kategorier i storage.
+ * categoryToCheck = Kategorin som ska kontrolleras.
  */
 function categoryExists(categoryStorage, categoryToCheck){
 
-    console.log("Checking if suggested category is unique..")
+    console.log("Kollar om föreslagen kategori är unik..")
 
     for(let i = 0; i < categoryStorage.length; i++){
         
         if(categoryStorage[i].catName === categoryToCheck.catName){
 
-            console.log("Category:"+categoryToCheck.catName+" is unique.")
+            console.log("Kategori:"+categoryToCheck.catName+" är unik.")
             return categoryStorage[i];
         }
     }
 
     return null;
 }
-
-
-
