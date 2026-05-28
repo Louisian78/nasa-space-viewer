@@ -24,4 +24,6 @@ return (
     </section>
 );
 }
+
+//Förberedd för att visa tidigare visade bilder. Den tar emot en history-array och en onSelectDate funktion från App.jsx. Själva sparandet i localStorage kopplas senare via localStorage.js
 export default HistoryList;
