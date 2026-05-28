@@ -16,7 +16,7 @@ return (
             {history.map((item) => (
                 <li key={item.date}>
                     <button type="button" onClick={() => onSelectDate(item.date)}>
-                        {item.date} - {item.date}
+                        {item.date} - {item.title}
                     </button>
                 </li>
             ))}
