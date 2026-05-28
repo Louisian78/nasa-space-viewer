@@ -7,4 +7,4 @@ function DatePicker() {
     );
 }
 
-export default Datepicker;
+export default DatePicker;

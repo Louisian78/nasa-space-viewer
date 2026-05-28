@@ -6,3 +6,5 @@ function NasaImage() {
         </section>
     );
 }
+
+export default NasaImage; 
