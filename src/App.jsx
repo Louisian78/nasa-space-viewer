@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import DatePicker from "./components/DatePicker";
 import NasaImage from "./components/NasaImage";
-import CategoryForm from "/CategoryForm"; 
+import CategoryForm from "/component/CategoryForm"; 
 import CategoryList from "./components/CategoryList";
 import SavedImages from "./components/SavedImages";
 
