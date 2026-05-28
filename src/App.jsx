@@ -4,6 +4,7 @@ import NasaImage from "./components/NasaImage";
 import CategoryForm from "./components/CategoryForm"; 
 import CategoryList from "./components/CategoryList";
 import SavedImages from "./components/SavedImages";
+import HistoryList from "./components/HistoryList";
 
 import "./App.css";
 
@@ -18,18 +19,18 @@ function App() {
         <p>Välj ett datum, upptäck rymdbilder och organisera dina favoriter i egna kategorier. </p>
         </section>
 
-        <section className="content-grid">
-          <div className="main-content">
+        <div className="content-grid">
+          <section className="main-content">
             <DatePicker />
             <NasaImage />
-          </div>
+          </section>
 
           <aside className="side-content">
           <CategoryForm />
           <CategoryList />
           <HistoryList />
           </aside>  
-        </section>
+        </div>
         <SavedImages /> 
       </main>
     </>
