@@ -4,7 +4,7 @@ import NasaImage from "./components/NasaImage";
 import CategoryForm from "./components/CategoryForm"; 
 import CategoryList from "./components/CategoryList";
 import SavedImages from "./components/SavedImages";
-
+import HistoryList from "./components/HistoryList";
 import "./App.css";
 
 function App() {
