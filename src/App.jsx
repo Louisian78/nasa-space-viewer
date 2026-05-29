@@ -3,7 +3,7 @@ import DatePicker from "./components/DatePicker/DatePicker";
 import NasaImage from "./components/NasaImage/NasaImage";
 import CategoryForm from "./components/CategoryForm"; 
 import CategoryList from "./components/CategoryList/CategoryList";
-import SavedImages from "./components/SavedImages";
+import SavedImages from "./components/SavedImages/SavedImages";
 import HistoryList from "./components/HistoryList/HistoryList";
 
 import "./App.css";
