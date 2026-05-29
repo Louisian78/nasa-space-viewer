@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import DatePicker from "./components/DatePicker/DatePicker";
 import NasaImage from "./components/NasaImage/NasaImage";
 import CategoryForm from "./components/CategoryForm"; 
