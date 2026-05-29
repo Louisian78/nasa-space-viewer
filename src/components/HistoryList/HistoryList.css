@@ -1,0 +1,24 @@
+.history-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.history-list li {
+  margin-bottom: 0.5rem;
+}
+
+.history-list button {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #34405f;
+  border-radius: 8px;
+  background-color: #202942;
+  color: #f5f5f5;
+  text-align: left;
+  cursor: pointer;
+}
+
+.history-list button:hover {
+  background-color: #2b3655;
+}
