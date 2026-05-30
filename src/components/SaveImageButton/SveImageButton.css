@@ -1,0 +1,27 @@
+.save-image-box {
+    background-color: #151b2f;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.save-image-box h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.save-image-box p {
+    color: #d8def0;
+}
+
+.save-image-box button {
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f7cff;
+    color: white;
+    cursor: pointer;
+}
+
+.save-image-box button:hover {
+    background-color: #3d65d6;
+}
