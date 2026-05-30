@@ -24,12 +24,12 @@ function SaveImageButton ({ image, categories = [], onSaveImage}) {
             <h2>Spara bild</h2>
 
             <p>
-                Spara <strong>{image.image} i en kategori.</strong>
+                Spara <strong>{image.title} i en kategori.</strong>
             </p>
 
             <button
             type="button"
-            onClick={() onSaveImage(image)}</button>
+            onClick={() => onSaveImage(image)}
 
             >
             Spara bild 
