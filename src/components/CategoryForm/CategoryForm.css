@@ -1,0 +1,55 @@
+/**
+ * CSS och styling för CategoryForm.jsx.
+ *    
+ *    Initiellt skapad av: Martin Frick
+ *                  Datum: 2026-05-30
+ *       Senast Ändrad/Av: 2026-05-30/Martin Frick
+ * Beskrivning av ändring: 
+ * 
+ */
+.category-form-box {
+    background-color: #151b2f;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.category-form-box h2 {
+    margin-top: 0;
+    color: #ffffff;
+}
+
+.category-form-box label {
+    display: block;
+    color: #d8def0;
+    margin-bottom: 0.5rem;
+}
+
+.category-form-box input {
+    display: block;
+    width: 100%;
+    margin-top: 0.4rem;
+    padding: 0.6rem 0.8rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #0e1424;
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.category-form-box input::placeholder {
+    color: #6b7596;
+}
+
+.category-form-box button {
+    margin-top: 0.8rem;
+    padding: 0.7rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #4f7cff;
+    color: white;
+    cursor: pointer;
+}
+
+.category-form-box button:hover {
+    background-color: #3d65d6;
+}

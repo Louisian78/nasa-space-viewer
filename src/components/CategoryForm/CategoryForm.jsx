@@ -1,6 +1,18 @@
 import { useState, useEffect } from 'react';
-import { getCategory } from '../utils/localStorage.js';
-import { createNewCategory } from '../utils/localStorage.js';
+import { createNewCategory } from '../../utils/localStorage.js';
+
+/**
+ * Funktioner för att spara ner och läsa upp kategorier och bilder i localStorage.
+ *    
+ *    Initiellt skapad av: Martin Frick
+ *                  Datum: 2026-05-29
+ *       Senast Ändrad/Av: 2026-05-30/Martin Frick
+ * Beskrivning av ändring: Tog bort inaktuell import. 
+ *                         Ändrade inkorrekt kommentar.
+ *                         Flyttade komponent till egen mapp enligt ny överenskommen struktur. 
+ *                         Lade till " className="category-form-box" " i "section" för styling. Modellerad på SaveImageButton.css.
+ */
+
 
 function CategoryForm ({ onAdd }) {
 
@@ -22,7 +34,7 @@ function CategoryForm ({ onAdd }) {
 
         Om input ("catName") är OK -> 
         -> Kalla på localStorage och se fall vi kan lägga in det->
-            -> Om namnet redan finns returneras en tom array - vi kan se det eftersom dess length då kommer vara "0".
+            -> Om namnet redan finns returneras en tom sträng.
         -> Om vi får tillbaka 
         -> Skicka till "App"
  
@@ -41,16 +53,16 @@ function CategoryForm ({ onAdd }) {
 
 
     return (
-    <section>
+    <section className="category-form-box">
         <h2>Skapa en ny kategori</h2>
 
         <form>
             <label>Kategorinamn:
                 <input 
-                type="text" 
-                value={catName} 
-                onChange={e => setCategory(e.target.value)} 
-                placeholder="Skriv namnet på din nya kategori här.."
+                    type="text" 
+                    value={catName} 
+                    onChange={e => setCategory(e.target.value)} 
+                    placeholder="Skriv namnet på din nya kategori här.."
                 /> 
             </label>
 

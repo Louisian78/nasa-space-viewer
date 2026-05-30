@@ -11,7 +11,7 @@
  *                         4. Lade till "addImage" funktion.
  *                         5. Lade till "appendHistory"
  *                         6. Varierande justeringar i flera funktioner för att fungera korrekt enligt ovan ändringar.
- *                         
+ *                         7. Lade till getAllCategories för CategoryList.jsx ska funka.
  *
  * 
  */
@@ -298,6 +298,18 @@ export function deleteImage(category, image) {
     return [];//Fall i fall något oförutsätt händer.
 
 }
+
+/**
+ * EXPORTERAD FUNKTION
+ * Plockar ut och returnar alla kategorier som finns.
+ * Om inget finns sparat körs kommer initializeStorage och bara "Historik" returneras.
+ */
+export function getAllCategories() {
+
+    //retrieveCatStorage både hämtar, parsar och, vid behov, initialiserar storage.
+    return retrieveCatStorage();
+}
+
 
 /*
 ------------------------------------------------
