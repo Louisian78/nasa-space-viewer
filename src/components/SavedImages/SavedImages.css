@@ -1,0 +1,40 @@
+/**
+ * Styling för SavedImages-komponenten.
+ * Initiellt skapad av: Kasper Schröder
+ * Datum: 2026-05-29
+ * Senast Ändrad/Av: 2026-05-30/Kasper Schröder
+*/
+
+.saved-images-section {
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: #151b2f;
+  border-radius: 12px;
+}
+
+.saved-images-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.saved-images-header h2 {
+  color: #4da8da;
+  margin: 0;
+}
+
+/* Skapar ett responsivt rutnät för de sparade bilderna */
+.saved-images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.no-saved-images {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #a0aab2;
+  font-style: italic;
+  padding: 2rem;
+  background-color: #0b1020;
+  border-radius: 8px;
+}
