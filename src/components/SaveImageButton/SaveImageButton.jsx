@@ -1,4 +1,4 @@
-import "./SaveImageButton.css";
+import "./SveImageButton.css";
 
 function SaveImageButton ({ image, categories = [], onSaveImage}) {
     if  (!image) {

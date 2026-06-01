@@ -13,9 +13,12 @@ import CategoryForm from "./components/CategoryForm/CategoryForm";
 import CategoryList from "./components/CategoryList/CategoryList";
 import SavedImages from "./components/SavedImages/SavedImages";
 import HistoryList from "./components/HistoryList/HistoryList";
+import SaveImageButton from "./components/SaveImageButton/SaveImageButton";
 
 // Importerar funktioner som hämtar data från NASA:s APOD API.
 import { fetchTodayNasaImage, fetchNasaImageByDate } from "./services/nasaApi";
+import { getCategory, getAllCategories, saveImage } from "./utils/localStorage";
+
 
 import "./App.css";
 
@@ -30,6 +33,8 @@ function App() {
   const[error, setError] = useState(null);
   // State som sparar tidigare visade NASA-bilder i en historiklista.
   const[history, setHistory] = useState([]);
+  const [viewCategory, setViewCategory] = useState("Historik");
+  const [categories, setCategories] = useState([]);
 
   // Körs en gång när appen startar.
   // Hämtar dagens NASA-bild automatiskt.
@@ -100,6 +105,41 @@ function App() {
   function handleHistoryClick(date) {
     handleDateChange(date);
   }
+
+  function handleSaveImage(image) {
+      if (!viewCategory || viewCategory === "Historik") {
+        alert("Du måste välja en av dina egna kategorier i listan (så den blir blå) innan du kan spara bilden!");
+        return;
+      }
+  
+      const result = saveImage(image, viewCategory);
+  
+      if (Array.isArray(result) && result.length === 0) {
+        alert(`Kategorin "${viewCategory}" är full! (Max 10 bilder)`);
+      } else {
+        alert(`Snyggt! Bilden sparades i "${viewCategory}".`);
+  
+        const current = viewCategory;
+        setViewCategory(""); 
+        setTimeout(() => setViewCategory(current), 0);
+      }
+    }
+  
+    function handleAddCategory() {
+      const allCats = getAllCategories();
+      if (allCats) {
+        setCategories(allCats.map(cat => cat.catName));
+      }
+    }
+  
+    let savedPics = [];
+    if (viewCategory) {
+      const categoryObj = getCategory(viewCategory);
+      if (categoryObj && !Array.isArray(categoryObj) && categoryObj.listOfImages) {
+        savedPics = categoryObj.listOfImages;
+      }
+    }
+
   return (
     <>
       <Header />
@@ -112,12 +152,10 @@ function App() {
 
         <div className="content-grid">
           <section className="main-content">
-            {/* DatePicker får det valda datumet och en funktion som körs när datumet ändras. */}
             <DatePicker 
               date={selectedDate}
               onDateChange={handleDateChange}
             />
-            {/* NasaImage får API-datan, laddningsstatus och eventuella felmeddelanden. */}
             <NasaImage 
               data={nasaData}
               isLoading={isLoading}
@@ -126,16 +164,27 @@ function App() {
           </section>
 
           <aside className="side-content">
-          <CategoryForm />
-          <CategoryList />
-          {/* HistoryList får historiken och en funktion för att kunna välja ett tidigare datum igen. */}
+          <SaveImageButton 
+            image={nasaData} 
+            categories={categories} 
+            onSaveImage={handleSaveImage} 
+          />
+          <CategoryForm onAdd={handleAddCategory} />
+          <CategoryList 
+            categories={categories} 
+            currentCategory={viewCategory}
+            onSelect={setViewCategory} 
+          />
           <HistoryList 
             history={history}
             onSelectDate={handleHistoryClick}
           />
           </aside>  
         </div>
-        <SavedImages /> 
+        <SavedImages 
+          categoryName={viewCategory} 
+          savedPics={savedPics} 
+        /> 
       </main>
     </>
   );
