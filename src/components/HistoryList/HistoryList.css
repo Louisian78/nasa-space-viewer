@@ -10,6 +10,7 @@
 
 .history-list button {
   width: 100%;
+  display: block;
   padding: 0.7rem;
   border: 1px solid #34405f;
   border-radius: 8px;
