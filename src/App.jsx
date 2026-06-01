@@ -89,7 +89,7 @@ function App() {
       setNasaData(data);
       addToHistory(data);
     } catch (error) {
-      setError("kunde tyvärr inte hämta NASA-bild för valt datum.")
+      setError("Kunde tyvärr inte hämta bilden just nu. Prova ett annat datum eller försök igen senare.")
     } finally {
       setIsLoading(false);
     }
