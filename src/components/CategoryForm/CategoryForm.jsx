@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { createNewCategory } from '../../utils/localStorage.js';
+import "./CategoryForm.css";
 
 /**
  * Funktioner för att spara ner och läsa upp kategorier och bilder i localStorage.
