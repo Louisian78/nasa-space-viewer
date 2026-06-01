@@ -1,3 +1,5 @@
+import "./HistoryList.css";
+
 function HistoryList({ history = [], onSelectDate }) {
     if (history.length === 0) {
         return (
