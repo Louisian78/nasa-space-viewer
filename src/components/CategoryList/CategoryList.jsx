@@ -9,24 +9,31 @@ import './CategoryList.css';
  * Senast Ändrad/Av: 2026-06-01/Kasper Schröder
 */
 
-function CategoryList({ categories = [], onSelect, currentCategory }) {
+function CategoryList({ categories = [], onSelect, currentCategory, onDeleteCategory }) {
+  return (
+    <section className="category-list-box">
+      <h2>Kategorier</h2>
 
-    return (
-        <section className="category-list-box">
-            <h2>Kategorier</h2>
-            
-            {categories.length === 0 ? (
-                <p>Inga sparade kategorier ännu.</p>
-            ) : (
-                <ul className="category-list-ul">
-                    {categories.map((catName) => (
-                        <li key={catName}>
-                            <button 
-                                //Lägg till "active" klass på knappen om det är den valda kategorin
-                                className={`category-list-btn ${currentCategory === catName ? 'active' : ''}`} 
-                                onClick={() => onSelect(catName)}
-                            >
-                                {catName}
+      {categories.length === 0 ? (
+        <p>Inga sparade kategorier ännu.</p>
+      ) : (
+        <ul className="category-list-ul">
+          {categories.map((catName) => (
+            <li className="category-list-item" key={catName}>
+              <button
+                type="button"
+                className={`category-list-btn ${currentCategory === catName ? 'active' : ''}`}
+                onClick={() => onSelect(catName)}
+              >
+                {catName}
+              </button>
+
+              <button
+                type="button"
+                className="delete-category-btn"
+                onClick={() => onDeleteCategory(catName)}
+              >
+                Ta bort kategori
                             </button>
                         </li>
                     ))}
