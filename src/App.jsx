@@ -14,10 +14,17 @@ import CategoryList from "./components/CategoryList/CategoryList";
 import SavedImages from "./components/SavedImages/SavedImages";
 import HistoryList from "./components/HistoryList/HistoryList";
 import SaveImageButton from "./components/SaveImageButton/SaveImageButton";
+/*import { getAllCategories, deleteCategory } from "./utils/localStorage";*/
 
 // Importerar funktioner som hämtar data från NASA:s APOD API.
 import { fetchTodayNasaImage, fetchNasaImageByDate } from "./services/nasaApi";
-import { getCategory, getAllCategories, saveImage } from "./utils/localStorage";
+/*import { getCategory, getAllCategories, saveImage } from "./utils/localStorage";*/
+import { 
+  getCategory, 
+  getAllCategories, 
+  saveImage, 
+  deleteCategory 
+} from "./utils/localStorage";
 
 
 import "./App.css";
@@ -35,11 +42,13 @@ function App() {
   const[history, setHistory] = useState([]);
   const [viewCategory, setViewCategory] = useState("Historik");
   const [categories, setCategories] = useState([]);
+  const [currentCategory, setCurrentCategory] = useState("");
 
   // Körs en gång när appen startar.
   // Hämtar dagens NASA-bild automatiskt.
   useEffect(() => {
     loadTodayImage();
+    loadCategories();
   }, []);
 
   // Lägger till en visad NASA-bild i historiken.
@@ -140,6 +149,34 @@ function App() {
       }
     }
 
+    function handleDeleteCategory(categoryName) {
+      const deletedCategory = deleteCategory(categoryName);
+
+      if(deletedCategory !== null) {
+        loadCategories();
+
+        if (currentCategory === categoryName) {
+          setCurrentCategory("");
+          setViewCategory("");
+        }
+      }
+    }
+
+    function handleSelectCategory(categoryName) {
+  setCurrentCategory(categoryName);
+  setViewCategory(categoryName);
+}
+
+  function loadCategories() {
+  const allCategories = getAllCategories();
+
+  const categoryNames = allCategories
+    .map((category) => category.catName)
+    .filter((catName) => catName !== "Historik");
+
+  setCategories(categoryNames);
+}  
+
   return (
     <>
       <Header />
@@ -172,8 +209,9 @@ function App() {
           <CategoryForm onAdd={handleAddCategory} />
           <CategoryList 
             categories={categories} 
-            currentCategory={viewCategory}
-            onSelect={setViewCategory} 
+            currentCategory={currentCategory}
+            onSelect={handleSelectCategory}
+            onDeleteCategory={handleDeleteCategory} 
           />
           <HistoryList 
             history={history}
