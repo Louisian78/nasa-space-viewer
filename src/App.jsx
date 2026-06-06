@@ -2,7 +2,7 @@
 // useState används för att spara värden som kan ändras i appen.
 // useEffect används för att köra kod när appen startar
 
-import {useEffect, useState} from "react";
+import {useEffect, useState, useRef} from "react";
 
 
 // Importerar komponenterna som används i appens gränssnitt.
@@ -43,6 +43,7 @@ function App() {
   const [viewCategory, setViewCategory] = useState("Historik");
   const [categories, setCategories] = useState([]);
   const [currentCategory, setCurrentCategory] = useState("");
+  const savedImagesRef = useRef(null);
 
   // Körs en gång när appen startar.
   // Hämtar dagens NASA-bild automatiskt.
@@ -173,6 +174,13 @@ function App() {
     function handleSelectCategory(categoryName) {
   setCurrentCategory(categoryName);
   setViewCategory(categoryName);
+
+  setTimeout(() => {
+    savedImagesRef.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }, 100);
 }
 
   function loadCategories() {
@@ -227,10 +235,12 @@ function App() {
           />
           </aside>  
         </div>
-        <SavedImages 
-          categoryName={viewCategory} 
-          savedPics={savedPics} 
-        /> 
+        <div ref={savedImagesRef}>
+  <SavedImages 
+    categoryName={viewCategory} 
+    savedPics={savedPics} 
+  />
+</div>
       </main>
     </>
   );
