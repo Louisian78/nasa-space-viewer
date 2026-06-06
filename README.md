@@ -38,7 +38,7 @@ Applikationen använder sig av [NASA:s APOD API (Astronomy Picture of the Day)](
 
 * **Användning:** Appen skickar anrop (inklusive eventuellt valt datum) till API:et för att hämta bildens titel, URL, mediatyp (bild/video) och en beskrivande text.
 
-* **API-nyckel:** Appen använder som standard `"DEMO_KEY"`. För att undvika API-spärrar (rate limits) vid många anrop rekommenderas det att man genererar en egen gratis nyckel hos NASA och skapar en `.env`-fil i src mappen med en variabel `VITE_NASA_API_KEY` och lägger in nyckeln däri.
+* **API-nyckel:** Appen använder som standard `"DEMO_KEY"`. För att undvika API-spärrar (rate limits) vid många anrop rekommenderas det att man genererar en egen gratis nyckel hos NASA och skapar en `.env`-fil i root mappen med en variabel `VITE_NASA_API_KEY` och lägger in nyckeln däri.
 
 ## Komponentstruktur
 Appen är uppdelad i mindre React-komponenter med syfte att varje del av appen ska ha sitt eget ansvar.
@@ -100,7 +100,7 @@ Följ dessa steg för att installera och köra applikationen lokalt:
 3. **Lägg till API nyckeln:**
     För att appen ska kunna hämta bilder behöver du en API-nyckel från NASA [Nyckel kan hämtas gratis här](https://api.nasa.gov/).
     
-    - Skapa en ny fil i projektets rotmapp (`src/`) och döp den till `.env`.
+    - Skapa en ny fil i projektets rotmapp och döp den till `.env`.
     - Klistra in följande i filen och byt ut mot din nyckel:
     ```code
     VITE_NASA_API_KEY=din_faktiska_api_nyckel_här
