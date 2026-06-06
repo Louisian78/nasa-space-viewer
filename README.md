@@ -1,6 +1,6 @@
-#NASA Space Viewer
+## NASA Space Viewer
 
-NASA Space Viewer is a react application where users can explore space related content from NASA and save selected items in categories. 
+## NASA Space Viewer is a react application where users can explore space related content from NASA and save selected items in categories. 
 
 ## Technologies
 - React 
@@ -30,7 +30,15 @@ Applikationen är planerad att innehålla följande funktioner:
 
 
 ## Tekniker
-
+Projektet använder följande tekniker
+-React
+-JavaScript
+-Vite
+-NASA APOD API
+-localStorage
+-HTML
+-CSS
+-Git och GitHub
 ## API
 Applikationen använder sig av [NASA:s APOD API (Astronomy Picture of the Day)](https://api.nasa.gov/). Detta API tillhandahåller dagligen en ny bild eller video relaterad till rymden, tillsammans med en förklaring skriven av en professionell astronom.
 
@@ -82,6 +90,13 @@ nasa-space-viewer/
 ```
 
 ## GitFlow
+I projektet har vi använt Git och Github för versionshantering och vi har arbetat enligt ett GitFlow liknande arbetssätt.
+-main används som huvudbranch
+-develop används av alla projektmedlemmar som utvecklingsbranch
+-nya funktioner utvecklas i separata feature-branches
+-när en funktion är klar skapas en pull request till develop
+-efter granskning och testning mergas ändringen in i develop
+
 
 ## Installation och körning
 Följ dessa steg för att installera och köra applikationen lokalt:
@@ -114,29 +129,25 @@ Följ dessa steg för att installera och köra applikationen lokalt:
 
 
 ## Ramverksjämförelse
-
-## REflektion
-##Project status
-
-Project is under development
+React: Det passar vårt projekt eftersom vi kan skapa separata komponenter med egna ansvarsområden. Det fungerar bra med Vite, vilket gör utvecklingsmiljö snabb och enkel att komma igång med. Vi kunde också dela upp gränssnittet i mindre återanvändbara komponenter. 
 
 
+Vue: Är också ett populärt JavaScript-ramverk men gruppens erfarenhet av Vue upplevdes som en brantare inlärningskurva, tydlig struktur men också mer komplext att arbeta med jämfört med React.
+
+
+Angular: Ett större och mer omfattande ramverk och för vårt projekt hade Angular blivit mer omfattande än nödvändigt och gruppens erfarenhet av Angular visade att det skulle bli för komplext för projektet.
+
+
+Efterforskningar gjordes även på till exempel Geeks for Geeks för att få en idé om lämpligt ramverk. Resultaten visade att det fanns många likheter mellan ramverken så som men att React passade bäst. Det gjordes även övningsexempel med React på FreeCodeCamp som till stor del lade vissa fundament i arbetet med detta projekt och gav gruppen en bra grund att stå på redan från start.  
+https://www.geeksforgeeks.org/reactjs/angular-vs-reactjs/
+https://v2.vuejs.org/v2/guide/comparison.html?redirect=true
+
+
+## Reflektion
+Arbetetet med projektet har gett oss en bra förståelse för hur en React-applikation kan byggas med komponenter och att sammankoppla dessa komponenter så att data kan skickas mellan dem.
+En annan lärdom var att GitFlow kräver god kommunikation i gruppen samt en viss noggrannhet eftersom kod annars kan hamna i fel branch och det kan bli extraarbete att städa upp efter ett misstag.
+Struktur och organisation för såväl kodning som för mötesprotokoll och mötesframförande har spelat en stor roll under projektets gång och har möjliggjort en smidig arbetsperiod och flöde. Vissa i gruppen har tagit lärdom av övriga gruppmedlemmars arbetssätt och tar med sig detta till framtiden. 
 
 
 
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
