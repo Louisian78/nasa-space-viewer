@@ -74,3 +74,54 @@ section {
     text-align: left;
   }
 }
+
+@media (max-width: 480px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .app-main {
+    padding: 0.75rem;
+  }
+
+  .hero-section,
+  .main-content,
+  .side-content {
+    padding: 1rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .site-header h1 {
+    font-size: 2rem;
+  }
+
+  .site-header p {
+    font-size: 1rem;
+  }
+
+  .datepicker-container {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+  }
+
+  .datepicker-input {
+    width: 100%;
+  }
+
+  .category-list-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .category-list-btn,
+  .delete-category-btn {
+    width: 100%;
+  }
+
+  .history-list-button {
+    width: 100%;
+  }
+}
