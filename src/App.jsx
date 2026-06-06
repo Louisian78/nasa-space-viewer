@@ -150,17 +150,25 @@ function App() {
     }
 
     function handleDeleteCategory(categoryName) {
-      const deletedCategory = deleteCategory(categoryName);
+  const confirmDelete = window.confirm(
+    `Är du säker på att du vill ta bort kategorin "${categoryName}"?`
+  );
 
-      if(deletedCategory !== null) {
-        loadCategories();
+  if (!confirmDelete) {
+    return;
+  }
 
-        if (currentCategory === categoryName) {
-          setCurrentCategory("");
-          setViewCategory("");
-        }
-      }
+  const deletedCategory = deleteCategory(categoryName);
+
+  if (deletedCategory !== null) {
+    loadCategories();
+
+    if (currentCategory === categoryName) {
+      setCurrentCategory("");
+      setViewCategory("");
     }
+  }
+}
 
     function handleSelectCategory(categoryName) {
   setCurrentCategory(categoryName);
