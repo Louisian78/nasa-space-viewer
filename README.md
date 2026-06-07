@@ -40,6 +40,8 @@ Applikationen använder sig av [NASA:s APOD API (Astronomy Picture of the Day)](
 
 * **API-nyckel:** Appen använder som standard `"DEMO_KEY"`. För att undvika API-spärrar (rate limits) vid många anrop rekommenderas det att man genererar en egen gratis nyckel hos NASA och skapar en `.env`-fil i root mappen med en variabel `VITE_NASA_API_KEY` och lägger in nyckeln däri.
 
+**OBS!** Se gärna bifogad API-nyckel på Canvas
+
 ## Komponentstruktur
 Appen är uppdelad i mindre React-komponenter med syfte att varje del av appen ska ha sitt eget ansvar.
 
@@ -120,7 +122,7 @@ Följ dessa steg för att installera och köra applikationen lokalt:
    Öppna därefter länken (oftast `http://localhost:5173`) som visas i terminalen för att se applikationen i din webbläsare.
 
 
-## Ramverksjämförelse
+## Ramverksjämförelse och motivation för vårt val
 React: Det passar vårt projekt eftersom vi kan skapa separata komponenter med egna ansvarsområden. Det fungerar bra med Vite, vilket gör utvecklingsmiljö snabb och enkel att komma igång med. Vi kunde också dela upp gränssnittet i mindre återanvändbara komponenter. 
 
 
@@ -130,10 +132,16 @@ Vue: Är också ett populärt JavaScript-ramverk men gruppens erfarenhet av Vue 
 Angular: Ett större och mer omfattande ramverk och för vårt projekt hade Angular blivit mer omfattande än nödvändigt och gruppens erfarenhet av Angular visade att det skulle bli för komplext för projektet.
 
 
-Efterforskningar gjordes även på till exempel Geeks for Geeks för att få en idé om lämpligt ramverk. Resultaten visade att det fanns många likheter mellan ramverken så som men att React passade bäst. Det gjordes även övningsexempel med React på FreeCodeCamp som till stor del lade vissa fundament i arbetet med detta projekt och gav gruppen en bra grund att stå på redan från start.  
+Efterforskningar gjordes även på till exempel Stack Overflow och Geeks for Geeks för att få en idé om lämpligt ramverk. Resultaten visade att det fanns många likheter mellan ramverken så som men att React passade bäst. Det gjordes även övningsexempel med React på FreeCodeCamp som till stor del lade vissa fundament i arbetet med detta projekt och gav gruppen en bra grund att stå på redan från start.  
+
+Källor:
 https://www.geeksforgeeks.org/reactjs/angular-vs-reactjs/
 https://v2.vuejs.org/v2/guide/comparison.html?redirect=true
-
+React documentation – Components and UI
+React documentation – Thinking in React
+Vite documentation – Getting Started / Why Vite
+Stack Overflow Developer Survey
+State of JS / State of React
 
 ## Reflektion
 Arbetetet med projektet har gett oss en bra förståelse för hur en React-applikation kan byggas med komponenter och att sammankoppla dessa komponenter så att data kan skickas mellan dem.
