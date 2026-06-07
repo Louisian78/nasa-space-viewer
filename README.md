@@ -2,15 +2,6 @@
 
 ## NASA Space Viewer is a react application where users can explore space related content from NASA and save selected items in categories. 
 
-## Technologies
-- React 
-- JavaScript
-- Vite
-- NASA API
-- localStorage
-- Git and GitHub
-
-
 ## Målgrupp
 -Rymdintresserade studenter (såväl som icke-studenter), som vill se och lära sig om rymden.   
 
@@ -39,6 +30,7 @@ Projektet använder följande tekniker
 -HTML
 -CSS
 -Git och GitHub
+
 ## API
 Applikationen använder sig av [NASA:s APOD API (Astronomy Picture of the Day)](https://api.nasa.gov/). Detta API tillhandahåller dagligen en ny bild eller video relaterad till rymden, tillsammans med en förklaring skriven av en professionell astronom.
 
